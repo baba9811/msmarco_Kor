@@ -6,17 +6,17 @@
 ## How to Read?
 
 ### 한국어 데이터셋
-'''python
+```python
 with open("trn_msmarco.json") as f:
     data  = json.load(f)
-'''
+```
 
 ### 영문 데이터셋
 인코딩이 깨져있는 단어들이 있어서 json.load만 사용하면
 로드가 안됩니다.
-'''python
+```python
 data = []
 with open("msmarco.json", "r", encoding="utf-8") as f:
     for line in f:
         data.append(json.loads(line.strip()))
-'''
+```
