@@ -2,9 +2,9 @@
 ### 한국어 embedding/retrieval test 용 데이터셋
 ### https://huggingface.co/datasets/namespace-Pt/msmarco
 ### 데이터셋을 GPT-o mini 로 번역하여 데이터셋 구축하였습니다.
-데이터셋은 id, query, positive로 구성되어있습니다.
-id: 1번부터 6,980번까지 각 query-positive pair의 id
-query: positive를 검색할 query
+데이터셋은 id, query, positive로 구성되어있습니다.  
+id: 1번부터 6,980번까지 각 query-positive pair의 id  
+query: positive를 검색할 query  
 positive: query에 대해 검색될 문장/문단으로 구성된 리스트
 
 ## How to Read?
@@ -20,7 +20,7 @@ with open("msmarco_eng.json") as f:
 ```
 
 ### Retrieval Evaluation
-huggingface에서 불러올 수 있는 모델들이랑, GPT embedding model을 비교해봤습니다.
+huggingface에서 불러올 수 있는 모델들이랑, GPT embedding model을 비교해봤습니다.  
 벡터 인덱싱에는 faiss 모델을 사용했습니다.
 
 #### 한글 데이터셋
