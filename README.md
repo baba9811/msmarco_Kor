@@ -7,7 +7,7 @@ id: 1번부터 6,980번까지 각 query-positive pair의 id
 query: positive를 검색할 query  
 positive: query에 대해 검색될 문장/문단으로 구성된 리스트
 
-## How to Read?
+## How to Load?
 
 ```python
 # Korean dataset
