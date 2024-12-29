@@ -1,7 +1,7 @@
 ## MS MARCO Korean Dataset
 ### 한국어 embedding/retrieval test 용 데이터셋
-### https://huggingface.co/datasets/namespace-Pt/msmarco
-### 데이터셋을 GPT-o mini 로 번역하여 데이터셋 구축하였습니다.
+#### https://huggingface.co/datasets/namespace-Pt/msmarco
+#### 데이터셋을 GPT-o mini 로 번역하여 데이터셋 구축하였습니다.
 데이터셋은 id, query, positive로 구성되어있습니다.  
 id: 1번부터 6,980번까지 각 query-positive pair의 id  
 query: positive를 검색할 query  
