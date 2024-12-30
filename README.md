@@ -1,7 +1,7 @@
 ## MS MARCO Korean Dataset
 ### 한국어 embedding/retrieval test 용 데이터셋
 #### https://huggingface.co/datasets/namespace-Pt/msmarco
-#### 데이터셋을 GPT-o mini 로 번역하여 데이터셋 구축하였습니다.
+#### 데이터셋을 GPT-4o mini 로 번역하여 데이터셋 구축하였습니다.
 번역에 사용된 프롬프트는 아래와 같습니다.
 ```
 {"role":"system",
