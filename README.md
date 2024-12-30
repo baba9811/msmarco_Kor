@@ -32,7 +32,10 @@ with open("msmarco_eng.json") as f:
 
 ### Retrieval Evaluation
 huggingface에서 불러올 수 있는 모델들이랑, GPT embedding model을 비교해봤습니다.  
-벡터 인덱싱에는 faiss 모델을 사용했습니다.
+벡터 인덱싱에는 faiss 모델을 사용했습니다.  
+환경은 모두 Colab A100 GPU, 데이터 임베딩 batch_size는 32로 설정하고 실험했습니다.  
+아무래도 Colab에서 테스트하다 보니 용량이 큰 임베딩 모델은 사용을 하지 못해서 MTEB 상위권 모델들은 다수 빠져있습니다.
+
 
 #### 한글 데이터셋
 한글 임베딩 데이터셋 평가 모델  
@@ -45,8 +48,6 @@ huggingface에서 불러올 수 있는 모델들이랑, GPT embedding model을 �
 
   
 **평가지표:** 데이터 임베딩 시간 (약 7,000개), 파라미터 수, HitRate, Recall, MAP(Mean Average Precision), NDCG(Normalized Discounted Cumulative Gain), MRR (Mean Reciprocal Rank)
-
-환경은 모두 Colab A100 GPU, 데이터 임베딩 batch_size는 32로 설정하고 실험했습니다.
 
 | **Model** | **HitRate   @1(5)** | **Recall   @1(5)** | **MAP   @1(5)** | **NDCG   @1(5)** | **MRR   @1(5)** | **Time(sec.)** | **\# of   Params** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
