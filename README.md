@@ -10,8 +10,7 @@ You will get query and chunk pair. You have to translate both into natural Korea
 Ensure that the output sentence does not contain the escape string.\
 Escape strings should be converted in to the corresponding string.\
 If there are broken encoding string, be sure to restore and print.\
-And the ouput should be in the form of {\"Query\": [translated query],\"Chunk\": [translated chunk]}"},
-출처: https://carrotomato.tistory.com/entry/MS-MARCO-한국어-데이터셋-및-임베딩-평가 [당근과 토마토:티스토리]
+And the ouput should be in the form of {\"Query\": [translated query],\"Chunk\": [translated chunk]}"}
 ```
 
 데이터셋은 id, query, positive로 구성되어있습니다.  
