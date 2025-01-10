@@ -47,13 +47,13 @@ huggingface에서 불러올 수 있는 모델들이랑, GPT embedding model을 �
 **Keyword based:** Okapi BM25
 
   
-**평가지표:** 데이터 임베딩 시간 (약 7,000개), 파라미터 수, HitRate, Recall, MAP(Mean Average Precision), NDCG(Normalized Discounted Cumulative Gain), MRR (Mean Reciprocal Rank)
+**평가지표:** HitRate, Recall, MAP(Mean Average Precision), NDCG(Normalized Discounted Cumulative Gain), MRR (Mean Reciprocal Rank), 파라미터 수, Evaluation 소요시간
 
 | **Model** | **HitRate   @1(5)** | **Recall   @1(5)** | **MAP   @1(5)** | **NDCG   @1(5)** | **MRR   @1(5)** | **Time(sec.)** | **\# of   Params** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | nlpai-lab/KURE-v1 | **0.936**   **(0.984)** | **0.936**   **(0.984)** | **0.936**   **(0.995)** | **0.936**  **(0.987)** | **0.936**   **(0.957)** | 11.00 | 568M |
 | dragonkue/BGE-m3-ko | **0.936**   **(0.984)** | **0.936**   **(0.984)** | **0.936**   **(0.995)** | **0.936**  **(0.987)** | **0.936**   **(0.957)** | 11.02 | 568M |
-| BAAI/bge-m3 | 0.930   (0.981) | 0.930**   (0.981) | 0.930   (0.992) | 0.930  (0.986) | 0.930   (0.954) | 15.59 | 568M |
+| BAAI/bge-m3 | 0.930   (0.981) | 0.930   (0.981) | 0.930   (0.992) | 0.930  (0.986) | 0.930   (0.954) | 15.59 | 568M |
 | jinaai/jina-embeddings-v3 | 0.911   (0.981) | 0.911   (0.981) | 0.911   (0.979) | 0.911   (0.975) | 0.911   (0.941) | 9.12 | 572M |
 | intfloat/multilingual-e5-large-instruct | 0.848   (0.963) | 0.848   (0.963) | 0.848   (0.932) | 0.848   (0.936) | 0.848   (0.897) | 11.04 | 558M |
 | sentence-transformers/paraphrase-multilingual-mpnet-base-v2 | 0.544   (0.714) | 0.544   (0.714) | 0.544   (0.632) | 0.544   (0.650) | 0.544   (0.610) | 4.72 | 278M |
