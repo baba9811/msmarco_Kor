@@ -33,14 +33,14 @@ with open("msmarco_eng.json") as f:
 ### Retrieval Evaluation
 huggingface에서 불러올 수 있는 모델들이랑, GPT embedding model을 비교해봤습니다.  
 벡터 인덱싱에는 faiss 모델을 사용했습니다.  
-환경은 모두 Colab A100 GPU, 데이터 임베딩 batch_size는 32로 설정하고 실험했습니다.  
-아무래도 Colab에서 테스트하다 보니 용량이 큰 임베딩 모델은 사용을 하지 못해서 MTEB 상위권 모델들은 다수 빠져있습니다.
+환경은 모두 RTX 3090 24GB GPU, 데이터 임베딩 batch_size는 8로 설정하고 실험했습니다.  
+작은 GPU로 테스트하다 보니 용량이 큰 임베딩 모델은 사용을 하지 못해서 MTEB 상위권 모델들은 다수 빠져있습니다.
 
 
 #### 한글 데이터셋
 한글 임베딩 데이터셋 평가 모델  
 
-**from huggingface:** BAAI/bge-m3, upskyy/bge-m3-korean, dragonkue/BGE-m3-ko, jinaai/jina-embeddings-v3, bespin-global/klue-sroberta-base-continue-learning-by-mnr, intfloat/multilingual-e5-large-instruct, sentence-transformers/paraphrase-multilingual-mpnet-base-v2  
+**from huggingface:** nlpai-lab/KURE-v1, BAAI/bge-m3, upskyy/bge-m3-korean, dragonkue/BGE-m3-ko, jinaai/jina-embeddings-v3, bespin-global/klue-sroberta-base-continue-learning-by-mnr, intfloat/multilingual-e5-large-instruct, sentence-transformers/paraphrase-multilingual-mpnet-base-v2  
   
 **openAI:** text-embedding-3-small, text-embedding-3-large  
   
@@ -51,13 +51,14 @@ huggingface에서 불러올 수 있는 모델들이랑, GPT embedding model을 �
 
 | **Model** | **HitRate   @1(5)** | **Recall   @1(5)** | **MAP   @1(5)** | **NDCG   @1(5)** | **MRR   @1(5)** | **Time(sec.)** | **\# of   Params** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| intfloat/multilingual-e5-large-instruct | 0.795   (0.942) | 0.795   (0.942) | 0.795   (0.891) | 0.795   (0.900) | 0.795   (0.856) | 60.95 | 560M |
-| sentence-transformers/paraphrase-multilingual-mpnet-base-v2 | 0.533   (0.707) | 0.533   (0.707) | 0.533   (0.622) | 0.533   (0.641) | 0.533   (0.601) | 19.24 | 278M |
-| bespin-global/klue-sroberta-base-continue-learning-by-mnr | 0.711   (0.873) | 0.711   (0.873) | 0.711   (0.873) | 0.711   (0.819) | 0.711   (0.777) | 18.58 | 110M |
-| jinaai/jina-embeddings-v3 | 0.910   **(0.979)** | 0.910   **(0.979)** | 0.910   **(0.977)** | 0.910   **(0.973)** | 0.910   **(0.940)** | **9.99** | 572M |
-| BAAI/bge-m3 | **0.912**   (0.976) | **0.912**   (0.976) | **0.912**   **(0.977)** | **0.912**  (0.972) | **0.912**   (0.939) | 60.97 | 568M |
-| upskyy/bge-m3-korean | 0.898   (0.971) | 0.898   (0.971) | 0.898   (0.966) | 0.898   (0.963) | 0.898   (0.930) | 61.02 | 568M |
-| dragonkue/BGE-m3-ko | 0.908   (0.975) | 0.908   (0.975) | 0.908   (0.973) | 0.908   (0.969) | 0.908   (0.936) | 61.00 | 568M |
+| nlpai-lab/KURE-v1 | **0.936**   **(0.984)** | **0.936**   **(0.984)** | **0.936**   **(0.995)** | **0.936**  **(0.987)** | **0.936**   **(0.957)** | 11.00 | 568M |
+| dragonkue/BGE-m3-ko | **0.936**   **(0.984)** | **0.936**   **(0.984)** | **0.936**   **(0.995)** | **0.936**  **(0.987)** | **0.936**   **(0.957)** | 11.02 | 568M |
+| BAAI/bge-m3 | 0.930   (0.981) | 0.930**   (0.981) | 0.930   (0.992) | 0.930  (0.986) | 0.930   (0.954) | 15.59 | 568M |
+| jinaai/jina-embeddings-v3 | 0.911   (0.981) | 0.911   (0.981) | 0.911   (0.979) | 0.911   (0.975) | 0.911   (0.941) | 9.12 | 572M |
+| intfloat/multilingual-e5-large-instruct | 0.848   (0.963) | 0.848   (0.963) | 0.848   (0.932) | 0.848   (0.936) | 0.848   (0.897) | 11.04 | 558M |
+| sentence-transformers/paraphrase-multilingual-mpnet-base-v2 | 0.544   (0.714) | 0.544   (0.714) | 0.544   (0.632) | 0.544   (0.650) | 0.544   (0.610) | 4.72 | 278M |
+| bespin-global/klue-sroberta-base-continue-learning-by-mnr | 0.701   (0.869) | 0.701   (0.869) | 0.701   (0.797) | 0.701   (0.812) | 0.701   (0.770) | 4.62 | 110M |
+| upskyy/bge-m3-korean | 0.898   (0.971) | 0.898   (0.971) | 0.898   (0.966) | 0.898   (0.963) | 0.898   (0.930) | 11.08 | 568M |
 | OpenAI/text-embedding-3-small | 0.785   (0.907) | 0.785   (0.907) | 0.785   (0.865) | 0.785   (0.872) | 0.785   (0.835) | \- | \- |
 | OpenAI/text-embedding-3-large | 0.877   (0.964) | 0.877   (0.964) | 0.877   (0.950) | 0.877   (0.949) | 0.877   (0.914) | \- | \- |
 | Okapi BM25 | 0.509   (0.649) | 0.509   (0.649) | 0.509   (0.581) | 0.509   (0.597) | 0.509   (0.563) | \- | \- |
